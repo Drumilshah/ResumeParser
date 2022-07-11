@@ -4,15 +4,11 @@ import textract
 
 
 # extract text from pdfs and docs for annotation
-
 datasetPath = "/Users/drumilshah/Documents/ResumeParser/dataset"
 
-trainingSetCount = 18
-count = 0
 trainingSetPdfs = []
 for root, dirs, files in os.walk(datasetPath):
   for filename in files:
-    count += 1
     trainingSetPdfs.append(filename)
     name, extension = os.path.splitext(filename)
     filePath = os.path.join(datasetPath, filename)
@@ -30,5 +26,3 @@ for root, dirs, files in os.walk(datasetPath):
       text = str(textract.process(filePath))
       with open(f'./extracted_text/{name}.txt', 'w') as f:
           f.write(text)
-    if(count > trainingSetCount):
-      break
