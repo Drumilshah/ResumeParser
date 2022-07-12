@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Resume Parser</title>
+</head>
+
+<body>
+    <div>
+        <form action="/upload" method="POST" enctype="multipart/form-data">
+            <input type="file" name="file" accept=".pdf">
+            <input type="submit">
+        </form>
+    </div>
+    <!-- {% if data %} -->
+    <div>
+        <table style="border: 5px">
+            <thead>
+                <tr>
+                    <th>Entity</th>
+                    <th>Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for key, values in data.items() %}
+                <tr>
+                    <td> {{ key }}: </td>
+                    <td> {{ values }} </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <!-- {% endif %} -->
+    </div>
+</body>
+
+</html>
